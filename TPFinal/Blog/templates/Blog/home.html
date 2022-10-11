@@ -1,0 +1,16 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Noticias y páginas de LUMBRE.
+{% endblock %}
+
+{% block contenido %}
+<a href="{% url 'blogListaPagina' %}">Ver páginas</a>
+<br>
+<a href="{% url 'blogCrearPagina' %}">Crear nueva página</a>
+{% endblock %}

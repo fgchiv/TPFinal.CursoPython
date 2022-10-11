@@ -1,0 +1,18 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Formulario página.
+{% endblock %}
+
+{% block contenido %}
+<form align="left" action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p align="center"><button type="submit">Guardar</button></p>
+</form>
+{% endblock %}

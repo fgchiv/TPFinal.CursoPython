@@ -1,0 +1,18 @@
+{% extends "Cuentas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Cuentas
+{% endblock %}
+
+{% block subtitulo %}
+Inicio de sesión.
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Iniciar sesión</button>
+</form>
+{% endblock %}

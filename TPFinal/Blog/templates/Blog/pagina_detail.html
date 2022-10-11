@@ -1,0 +1,31 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+{{pagina.titulo}}
+{% endblock %}
+
+{% block subtitulo %}
+{{pagina.subtitulo}}
+{% endblock %}
+
+{% block contenido %}
+{{pagina.cuerpo|linebreaks}}
+<br>
+{% if imagen.imagen %}
+<img src="{{imagen.imagen.url}}" alt="No hay imagen." style="max-width: 600px ;">
+<p>Fecha de publicación de imagen: {{imagen.fechaPublicacion}}</p>
+{% endif %}
+<p>Autor: {{pagina.autor.first_name}} {{pagina.autor.last_name}}    |    Fecha de publicación: {{pagina.fechaPublicacion}}</p>
+<br>
+<a href="{% url 'blogEditarPagina' pagina.id %}">Editar página</a> | 
+<a href="{% url 'blogEliminarPagina' pagina.id %}">Borrar página</a>
+<br>
+{% if request.user.is_superuser %}
+    {% if imagen.imagen %}
+        <a href="{% url 'blogEliminarImagenPagina' imagen.id %}">Eliminar imagen</a>
+    {% else %}
+        <a href="{% url 'blogAgregarImagenPagina' pagina.id %}">Agregar imagen</a>
+    {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "Cuentas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Cuentas
+{% endblock %}
+
+{% block subtitulo %}
+Registro de nuevo usuario.
+{% endblock %}
+
+{% block contenido %}
+<form align="left" action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p align="center"><button type="submit">Registrarse</button></p>
+</form>
+{% endblock %}

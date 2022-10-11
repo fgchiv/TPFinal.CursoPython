@@ -1,0 +1,33 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Páginas publicadas.
+{% endblock %}
+
+{% block contenido %}
+<ul>
+    {% for pagina in object_list %}
+        <li>
+            <p align="left">
+                Título: {{pagina.titulo}} <br>
+                Subtitulo: {{pagina.subtitulo}} <br>
+                Autor: {{pagina.autor.first_name}} {{pagina.autor.last_name}}    |    Fecha de publicación: {{pagina.fechaPublicacion}}
+            </p>
+            <p align="center">
+                <a href="{% url 'blogPagina' pagina.id %}">Ver</a> | 
+                <a href="{% url 'blogEditarPagina' pagina.id %}">Editar</a> | 
+                <a href="{% url 'blogEliminarPagina' pagina.id %}">Borrar</a>
+            </p>
+        </li>
+    {% empty %}
+        <p>Todavía no hay páginas publicadas.</p>
+    {% endfor %}
+</ul>
+<br>
+<a href="{% url 'blogCrearPagina' %}">Crear nueva página</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "Cuentas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Cuentas
+{% endblock %}
+
+{% block subtitulo %}
+Eliminar perfil.
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}
+    Se perderán todos los datos del perfil {{username}} ¿Confirma la eliminación?
+    <br>
+    <br>
+    <button type="submit">Confirmar</button>
+</form>
+{% endblock %}

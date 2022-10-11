@@ -1,0 +1,18 @@
+{% extends "Cuentas/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Cuentas
+{% endblock %}
+
+{% block subtitulo %}
+Agregar Avatar.
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Cargar Avatar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Eliminar imagen.
+{% endblock %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    ¿Confirma que desea eliminar la imagen?
+    <p align="center"><button type="submit">Confirmo</button></p>
+</form>
+{% endblock %}

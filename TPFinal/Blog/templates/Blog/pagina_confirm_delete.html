@@ -1,0 +1,18 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Eliminar página.
+{% endblock %}
+
+{% block contenido %}
+<form method="POST">
+    {% csrf_token %}
+    ¿Confirma que desea eliminar la página "{{object.titulo}}"?
+    <p align="center"><button type="submit">Confirmo</button></p>
+</form>
+{% endblock %}

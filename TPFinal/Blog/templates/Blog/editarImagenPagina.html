@@ -1,0 +1,18 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+
+{% block titulo %}
+Blog
+{% endblock %}
+
+{% block subtitulo %}
+Cambiar la imagen de la página {{titulo}}.
+{% endblock %}
+
+{% block contenido %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Cargar imagen nueva</button>
+</form>
+{% endblock %}
